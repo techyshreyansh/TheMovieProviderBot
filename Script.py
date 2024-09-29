@@ -8,6 +8,30 @@ class script(object):
 ᴡᴇ ʜᴀᴠᴇ ᴅᴇᴠɪᴅᴇᴅ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅꜱ ꜰᴏʀ ɢʀᴏᴜᴘ ᴏᴡɴᴇʀꜱ ᴀɴᴅ ʙᴏᴛ ᴜꜱᴇʀꜱ.</b>"""
 
     ABOUT_TXT = """<b>‣ ᴍʏ ɴᴀᴍᴇ : {}\n‣ ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/DeletedFromEarth'>Hᴀʀꜱʜᴀʟ ❤️‍🔥</a>\n‣ ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ\n‣ ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ\n‣ ᴅᴀᴛᴀ ʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ\n‣ ʜᴏsᴛᴇᴅ ᴏɴ  : ʜᴇʀᴏᴋᴜ\n‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ4.2 [sᴛᴀʙʟᴇ]</b>"""
+
+from pyrogram import Client, filters
+
+# Define your about text
+ABOUT_TXT = """<b>‣ ᴍʏ ɴᴀᴍᴇ : {}\n‣ ᴄʀᴇᴀᴛᴏʀ : <a href='https://t.me/DeletedFromEarth'>Hᴀʀꜱʜᴀʟ ❤️‍🔥</a>\n‣ ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ\n‣ ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ\n‣ ᴅᴀᴛᴀ ʙᴀsᴇ : ᴍᴏɴɢᴏ ᴅʙ\n‣ ʜᴏsᴛᴇᴅ ᴏɴ  : ʜᴇʀᴏᴋᴜ\n‣ ʙᴜɪʟᴅ sᴛᴀᴛᴜs : ᴠ4.2 [sᴛᴀʙʟᴇ]</b>"""
+
+# Define a command handler for /about
+@Client.on_message(filters.command("about"))
+async def about_command(client, message):
+    bot_name = client.me.first_name  # Get the bot's name dynamically
+    await message.reply_text(ABOUT_TXT.format(bot_name), parse_mode="html")
+
+# Other command handlers
+@Client.on_message(filters.command("start"))
+async def start_command(client, message):
+    await message.reply_text("Hello! Welcome to the bot.")
+
+# Initialize the bot with its API credentials
+if __name__ == "__main__":
+    app = Client("my_bot", api_id="29911519", api_hash="b362114c9be7daac16b60e82db0c8ad8", bot_token="7840518400:AAGnNJHGOhixeYisrpW2hfyyHz3swVrT7nQ")
+    
+    # Start the bot
+    app.run()
+
     
     CHANNELS = """
 <b>⚡ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs ɪɴғᴏ ⚡ 
